@@ -43,7 +43,7 @@ const auth = async (req, res, next) => {
   }
 };
 
-const checkRole = (roles) => {
+const checkRoles = (roles) => {
   return (req, res, next) => {
     if (!roles.includes(req.user.role)) {
       return res.status(403).json({ message: 'Access denied' });
@@ -52,4 +52,4 @@ const checkRole = (roles) => {
   };
 };
 
-module.exports = { auth, checkRole }; 
+module.exports = { auth, checkRoles }; 
